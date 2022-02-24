@@ -13,6 +13,7 @@ function onAdd() {
   }
   const list = createlist(text);
   container.appendChild(list);
+  list.scrollIntoView({ block: 'center' });
   userInput.value = '';
   userInput.focus();
 }
@@ -48,4 +49,10 @@ function createlist(text) {
 
 addBtn.addEventListener('click', () => {
   onAdd();
+});
+
+userInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    onAdd();
+  }
 });
