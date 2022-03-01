@@ -4,6 +4,11 @@ const container = document.querySelector('.items');
 const userInput = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__button');
 const deleteBtn = document.querySelector('.item__delete');
+const newForm = document.querySelector('.new-form');
+newForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  onAdd();
+});
 
 function onAdd() {
   const text = userInput.value;
@@ -34,16 +39,6 @@ function createlist(text) {
   id++;
   return itemRow;
 }
-
-addBtn.addEventListener('click', () => {
-  onAdd();
-});
-
-userInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    onAdd();
-  }
-});
 
 container.addEventListener('click', (event) => {
   const id = event.target.dataset.id;
